@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGameAndroid", "MonoGame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzEngine", "..\EzEngine\EzEngine.csproj", "{602012A7-EC56-4BE2-B601-FE11CACB6BAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzEngineTest", "..\EzEngineTest\EzEngineTest.csproj", "{5D1E0D69-CDC8-4116-8D88-075FEE9EAD04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{602012A7-EC56-4BE2-B601-FE11CACB6BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{602012A7-EC56-4BE2-B601-FE11CACB6BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{602012A7-EC56-4BE2-B601-FE11CACB6BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D1E0D69-CDC8-4116-8D88-075FEE9EAD04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D1E0D69-CDC8-4116-8D88-075FEE9EAD04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D1E0D69-CDC8-4116-8D88-075FEE9EAD04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D1E0D69-CDC8-4116-8D88-075FEE9EAD04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
