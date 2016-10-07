@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace EzEngine
 {
-    public delegate void DrawDelegate(int a_millisecs);
-    interface IEngine
-    {
+   public delegate void DrawDelegate(int a_millisecs);
+   interface IEngine
+   {
         
-        void drawLine();
+      void drawLine();
 
-        void registerForDraw(DrawDelegate a_drawCallback);
-    }
+      void registerForDraw(DrawDelegate a_drawCallback);
+   }
 }
