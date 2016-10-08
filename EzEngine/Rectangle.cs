@@ -77,5 +77,18 @@ namespace EzEngine
             return m_bottomRight.Y - m_topLeft.Y;
          }
       }
+
+      /// <summary>
+      /// Fit rectangle a in rectangle b. Keeps rectangle a's aspect.
+      /// Returns rectangle with coords with respect to rectangle b.
+      /// </summary>
+      /// <param name="m_a"></param>
+      /// <param name="m_b"></param>
+      /// <returns>Rectangle with coords with respect to rectangle b</returns>
+      public static Rectangle fitRectangle(Rectangle m_a, Rectangle m_b)
+      {
+         Rectangle r;
+         return null;
+      }
    }
 }
