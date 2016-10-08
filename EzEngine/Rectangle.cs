@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,6 +88,8 @@ namespace EzEngine
       /// <returns>Rectangle with coords with respect to rectangle b</returns>
       public static Rectangle fitRectangle(Rectangle m_a, Rectangle m_b)
       {
+         Debug.Assert(false, "Not implemented");
+
          Rectangle r;
          return null;
       }
