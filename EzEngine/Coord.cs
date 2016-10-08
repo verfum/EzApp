@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace EzEngine
 {
+   // Represents a 2-D coordinat
    public class Coord
    {
       public Coord(float a_x, float a_y)
