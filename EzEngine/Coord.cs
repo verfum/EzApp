@@ -8,6 +8,11 @@ namespace EzEngine
 {
    public class Coord
    {
+      /// <summary>
+      /// 2D coordinate that is used for World and Screen
+      /// </summary>
+      /// <param name="a_x"></param>
+      /// <param name="a_y"></param>
       public Coord(float a_x, float a_y)
       {
          m_x = a_x;

@@ -8,7 +8,7 @@ namespace EzEngineTest
    public class CoordTests
    {
       [TestMethod]
-      public void TestConstructor()
+      public void TestCoordConstructor()
       {
          Coord coord = new Coord(2F, 3F);
          Assert.AreEqual(coord.X, 2F);
