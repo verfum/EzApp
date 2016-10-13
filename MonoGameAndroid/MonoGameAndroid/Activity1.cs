@@ -19,7 +19,7 @@ namespace MonoGameAndroid
         {
          
             base.OnCreate(bundle);
-            var g = new EzEngine.Engine();
+            var g = new MonoGameCommon.MonoGameDevice();
             SetContentView((View)g.Services.GetService(typeof(View)));
             g.Run();
         }
