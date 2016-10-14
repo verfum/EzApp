@@ -13,9 +13,9 @@ using System.IO;
 
 using EzEngine;
 
-namespace MonoGameCommon
+namespace MonoGameDevice
 {
-   class MonoGameDevice : Game, EzEngine.IDevice
+   public class Device : Game, EzEngine.IDevice
    {
       public event EzEngine.UpdateEventHandler updateEvent;
 
@@ -29,7 +29,7 @@ namespace MonoGameCommon
       private string m_levelName;
       private Boolean m_backPressed = false;
 
-      public MonoGameDevice()
+      public Device()
       {
 
          graphics = new GraphicsDeviceManager(this);

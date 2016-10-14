@@ -39,9 +39,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Common\MonoGameDevice.cs">
-      <Link>MonoGameDevice.cs</Link>
-    </Compile>
     <Compile Include="Game1.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Primitives2D.cs" />
@@ -77,6 +74,10 @@
     <ProjectReference Include="..\EzEngine\EzEngine.csproj">
       <Project>{602012a7-ec56-4be2-b601-fe11cacb6baf}</Project>
       <Name>EzEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoGameDevice\MonoGameDevice.csproj">
+      <Project>{c92358f6-c1eb-46e6-af85-1bb2cc7d1b68}</Project>
+      <Name>MonoGameDevice</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

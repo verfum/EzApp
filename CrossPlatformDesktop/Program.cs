@@ -13,7 +13,7 @@ namespace CrossPlatformDesktop
       [STAThread]
       static void Main()
       {
-         var engine = new EzEngine.Engine(new MonoGameCommon.MonoGameDevice());
+         var engine = new EzEngine.Engine(new MonoGameDevice.Device());
          engine.run();
 
 
