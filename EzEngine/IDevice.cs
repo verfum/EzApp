@@ -15,9 +15,9 @@ namespace EzEngine
       /// <param name="a_timeElapsed">Elapsed time in milliseconds</param>
       public UpdateEventArgs(int a_timeElapsed)
       {
-         TimeElapsed = a_timeElapsed;
+         timeElapsed = a_timeElapsed;
       }
-      public int TimeElapsed { get; set; }
+      public int timeElapsed { get; set; }
    }
    public delegate void UpdateEventHandler(object sender, UpdateEventArgs e);
 
@@ -26,6 +26,10 @@ namespace EzEngine
    /// </summary>
    public interface IDevice
    {
-      event UpdateEventHandler UpdateEvent;
+      void start();
+
+      event UpdateEventHandler updateEvent;
+
+      void drawImage(string a_imageName, Rectangle a_position);
    }
 }

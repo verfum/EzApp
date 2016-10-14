@@ -11,8 +11,8 @@ namespace EzEngineTest
       public void TestCoordConstructor()
       {
          Coord coord = new Coord(2F, 3F);
-         Assert.AreEqual(coord.X, 2F);
-         Assert.AreEqual(coord.Y, 3F);
+         Assert.AreEqual(coord.x, 2F);
+         Assert.AreEqual(coord.y, 3F);
       }
    }
 }

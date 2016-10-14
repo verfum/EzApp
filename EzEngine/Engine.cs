@@ -10,24 +10,20 @@ using System.IO;
 
 namespace EzEngine
 {
-   public class Engine : IEngine
+   public class Engine
    {
+      private IDevice m_device;
+
+      public Engine(IDevice a_device)
+      {
+         m_device = a_device;
+      }
+
+      public void run()
+      {
+         m_device.start();
+      }
+
       
-
-      public Engine()
-      {
-
-      }
-
-      public void drawLine()
-      {
-         throw new NotImplementedException();
-      }
-
-      private DrawDelegate m_drawCallback;
-      public void registerForDraw(DrawDelegate a_drawCallback)
-      {
-         m_drawCallback = a_drawCallback;
-      }
    }
 }

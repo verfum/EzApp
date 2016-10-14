@@ -17,7 +17,7 @@ namespace MonoGameCommon
 {
    class MonoGameDevice : Game, EzEngine.IDevice
    {
-      public event EzEngine.UpdateEventHandler UpdateEvent;
+      public event EzEngine.UpdateEventHandler updateEvent;
 
 
 
@@ -89,12 +89,10 @@ namespace MonoGameCommon
       /// </summary>
       /// <param name="gameTime">Provides a snapshot of timing values.</param>
       protected override void Update(GameTime gameTime)
-      {
-
-         
-         if (UpdateEvent != null)
+      {     
+         if (updateEvent != null)
          {
-            UpdateEvent(this, new UpdateEventArgs(gameTime.ElapsedGameTime.Milliseconds));
+            updateEvent(this, new UpdateEventArgs(gameTime.ElapsedGameTime.Milliseconds));
          }
 
 
@@ -141,6 +139,23 @@ namespace MonoGameCommon
          base.Draw(gameTime);
       }
 
+      public void drawImage(string a_imageName, EzEngine.Rectangle a_screenRect)
+      {
+         m_spriteBatch.Draw(
+            m_hero,
+            new Microsoft.Xna.Framework.Rectangle(
+               (int)a_screenRect.left,
+               (int)a_screenRect.top,
+               (int)a_screenRect.width,
+               (int)a_screenRect.height),
+            Color.White);
 
+         throw new NotImplementedException();
+      }
+
+      public void start()
+      {
+         this.Run();
+      }
    }
 }

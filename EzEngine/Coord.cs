@@ -23,7 +23,7 @@ namespace EzEngine
       private float m_x;
       private float m_y;
 
-      public float X
+      public float x
       {
          set
          {
@@ -35,7 +35,7 @@ namespace EzEngine
          }
       }
 
-      public float Y
+      public float y
       {
          set
          {

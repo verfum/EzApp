@@ -23,7 +23,7 @@ namespace EzEngine
          m_bottomRight = a_bottomRight;
       }
 
-      public Coord TopLeft
+      public Coord topLeft
       {
          set
          {
@@ -35,7 +35,7 @@ namespace EzEngine
          }
       }
 
-      public Coord BottomRight
+      public Coord bottomRight
       {
          set
          {
@@ -47,35 +47,35 @@ namespace EzEngine
          }
       }
 
-      public float Left
+      public float left
       {
          get
          {
-            return m_topLeft.X;
+            return m_topLeft.x;
          }
       }
 
-      public float Top
+      public float top
       {
          get
          {
-            return m_topLeft.Y;
+            return m_topLeft.y;
          }
       }
 
-      public float Width
+      public float width
       {
          get
          {
-            return m_bottomRight.X - m_topLeft.X;
+            return m_bottomRight.x - m_topLeft.x;
          }
       }
 
-      public float Height
+      public float height
       {
          get
          {
-            return m_bottomRight.Y - m_topLeft.Y;
+            return m_bottomRight.y - m_topLeft.y;
          }
       }
 
