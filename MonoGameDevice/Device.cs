@@ -126,9 +126,8 @@ namespace MonoGameDevice
          // TODO: Add your drawing code here
 
          m_spriteBatch.Begin();
-
          m_spriteBatch.Draw(m_hero, new Vector2(400, 240), Color.White);
-         m_spriteBatch.DrawString(m_font, "Level " + m_levelName + " Score: " + m_score, new Vector2(100, 100), Color.Black);
+         m_spriteBatch.DrawString(m_font, "Levely " + m_levelName + " Score: " + m_score, new Vector2(100, 100), Color.Black);
          m_spriteBatch.DrawString(m_font, "Back: " + m_backPressed,
                new Vector2(100, 130), Color.Black);
          //m_spriteBatch.DrawLine(200, 200, 300, 250, Color.Yellow);

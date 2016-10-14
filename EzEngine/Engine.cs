@@ -26,7 +26,10 @@ namespace EzEngine
       private void A_device_updateEvent(object sender, UpdateEventArgs e)
       {
          // Pass on unless we're going to add any params.
-         updateEvent(this, e);
+         if (updateEvent != null)
+         {
+            updateEvent(this, e);
+         }
       }
 
       public void run()
