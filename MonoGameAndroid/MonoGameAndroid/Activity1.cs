@@ -17,7 +17,12 @@ namespace MonoGameAndroid
    {
       protected override void OnCreate(Bundle bundle)
       {
-         
+        
+          //private static string KEY_API_VERSION = "API_VERSION";
+          Bundle request = new Bundle();
+          request.PutInt("API_VERSION", 1);
+
+
          base.OnCreate(bundle);
 
          var g = new MonoGameDevice.Device();

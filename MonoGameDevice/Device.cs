@@ -15,11 +15,16 @@ using EzEngine;
 
 namespace MonoGameDevice
 {
-   public class Device : Game, EzEngine.IDevice
+   public class Device :
+      Microsoft.Xna.Framework.Game,
+      EzEngine.IDevice
    {
       public event EzEngine.UpdateEventHandler updateEvent;
+      public event EzEngine.InitEventHander initEvent;
+      public event EzEngine.LoadContentEventHandler loadContentEvent;
+      public event EzEngine.DrawEventHandler drawEvent;
 
-
+      private Dictionary<string, Texture2D> m_images = new Dictionary<string, Texture2D>();
 
       private GraphicsDeviceManager graphics;
       private SpriteBatch m_spriteBatch;
@@ -36,7 +41,7 @@ namespace MonoGameDevice
          Content.RootDirectory = "Content";
       }
 
-
+      
       /// <summary>
       /// Allows the game to perform any initialization it needs to before starting to run.
       /// This is where it can query for any required services and load any non-graphic
@@ -56,6 +61,21 @@ namespace MonoGameDevice
       /// </summary>
       protected override void LoadContent()
       {
+
+         // TODO: The main app needs to pass a list of available sprite names that
+         // can be loaded.
+         // Here we need to load these and store in a look-up store
+         // against the string name.
+         // Same goes for xml and sound files, etc.
+         // So need an interface to access xml files via the IDevice interface
+
+         // Call back to EzEngine  
+         if (loadContentEvent != null)
+         {
+            loadContentEvent(this, new EventArgs());
+         }
+
+
          // Create a new SpriteBatch, which can be used to draw textures.
          m_spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -89,13 +109,16 @@ namespace MonoGameDevice
       /// </summary>
       /// <param name="gameTime">Provides a snapshot of timing values.</param>
       protected override void Update(GameTime gameTime)
-      {     
+      {   
+         // Call back to EzEngine  
          if (updateEvent != null)
          {
             updateEvent(this, new UpdateEventArgs(gameTime.ElapsedGameTime.Milliseconds));
          }
 
 
+
+         // TODO: Remove this eventually
          if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
                || Keyboard.GetState().IsKeyDown(Keys.Escape))
          {
@@ -108,6 +131,11 @@ namespace MonoGameDevice
          }
 
          m_score++;
+         // End of remove this eventually
+
+
+
+
 
          // TODO: Add your update logic here
 
@@ -120,26 +148,82 @@ namespace MonoGameDevice
       /// <param name="gameTime">Provides a snapshot of timing values.</param>
       protected override void Draw(GameTime gameTime)
       {
-
          GraphicsDevice.Clear(Color.CornflowerBlue);
 
-         // TODO: Add your drawing code here
-
          m_spriteBatch.Begin();
+
+
+
+         // Call back to EzEngine  
+         // TODO hopefully ok to do all drawing between the spritebatch.begin and end?
+         if (drawEvent != null)
+         {
+            drawEvent(this, new EventArgs());
+         }
+
+
+
+         // TODO: Remove this eventually
          m_spriteBatch.Draw(m_hero, new Vector2(400, 240), Color.White);
-         m_spriteBatch.DrawString(m_font, "Levely " + m_levelName + " Score: " + m_score, new Vector2(100, 100), Color.Black);
+         m_spriteBatch.DrawString(m_font, "Level50 " + m_levelName + 
+            " Score: " + m_score, new Vector2(100, 100), Color.Black);
          m_spriteBatch.DrawString(m_font, "Back: " + m_backPressed,
                new Vector2(100, 130), Color.Black);
          //m_spriteBatch.DrawLine(200, 200, 300, 250, Color.Yellow);
          //m_spriteBatch.DrawCircle(400, 100, 90, 3, Color.White * 0.2f);
+         // End of remove this eventually
+
+
+
 
          m_spriteBatch.End();
-
+         
          base.Draw(gameTime);
+      }
+
+      public void loadImage(string a_imageName)
+      {      
+         if (!m_images.ContainsKey(a_imageName))
+         {
+            Texture2D image = Content.Load<Texture2D>(a_imageName);
+            if(image == null)
+            {
+               throw new Exception("Could not load image: " + a_imageName);
+            }
+
+            m_images.Add(a_imageName, image);
+         }
       }
 
       public void drawImage(string a_imageName, EzEngine.Rectangle a_screenRect)
       {
+         // TODO: need to lookup the Texture2D image from the supplied
+         // a_imageName and use it here instead of the hardcoded m_hero
+
+         if(m_images.ContainsKey(a_imageName))
+         {
+            if(m_images[a_imageName] != null)
+            {
+               m_spriteBatch.Draw(
+                  m_images[a_imageName],
+                  new Microsoft.Xna.Framework.Rectangle(
+                     (int)a_screenRect.left,
+                     (int)a_screenRect.top,
+                     (int)a_screenRect.width,
+                     (int)a_screenRect.height),
+                  Color.White);
+            }
+            else
+            {
+               throw new Exception("Image is invalid: " + a_imageName);
+            }
+         }
+         else
+         {
+            throw new Exception("Image does not exist: " + a_imageName);
+         }
+
+         // TODO: Draw the correct a_imageName from a cache of Texture2D images
          m_spriteBatch.Draw(
             m_hero,
             new Microsoft.Xna.Framework.Rectangle(
@@ -149,12 +233,17 @@ namespace MonoGameDevice
                (int)a_screenRect.height),
             Color.White);
 
-         throw new NotImplementedException();
       }
 
+      /// <summary>
+      /// Start the device
+      /// </summary>
       public void start()
       {
+         // Call Xna.Framework.Run
          this.Run();
       }
+
+      
    }
 }

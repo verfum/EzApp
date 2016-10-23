@@ -39,7 +39,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Level.cs" />
     <Compile Include="Primitives2D.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +76,10 @@
     <ProjectReference Include="..\MonoGameDevice\MonoGameDevice.csproj">
       <Project>{c92358f6-c1eb-46e6-af85-1bb2cc7d1b68}</Project>
       <Name>MonoGameDevice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestGame\TestGame.csproj">
+      <Project>{f4ac4124-9c3b-48ee-848a-7b2f8bd2cd82}</Project>
+      <Name>TestGame</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

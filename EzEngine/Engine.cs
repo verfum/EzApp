@@ -13,6 +13,7 @@ namespace EzEngine
    public class Engine
    {
       public event EzEngine.UpdateEventHandler updateEvent;
+      public event EzEngine.LoadContentEventHandler loadContentEvent;
 
 
       private IDevice m_device;
@@ -20,10 +21,40 @@ namespace EzEngine
       public Engine(IDevice a_device)
       {
          m_device = a_device;
-         a_device.updateEvent += A_device_updateEvent;
+         a_device.updateEvent += onUpdateEvent;
+         a_device.loadContentEvent += onLoadContentEvent;
+         a_device.drawEvent += onDrawEvent;
       }
 
-      private void A_device_updateEvent(object sender, UpdateEventArgs e)
+      private void onDrawEvent(object sender, EventArgs e)
+      {
+         throw new NotImplementedException();
+      }
+
+      private void onLoadContentEvent(object sender, EventArgs e)
+      {
+         if(loadContentEvent != null)
+         {
+            loadContentEvent(this, e);
+         }
+      }
+
+      public void run()
+      {
+         m_device.start();
+      }
+
+      /*public Image createImage(string m_name)
+      {
+
+      }
+
+      public void addImage(Image image, Rectangle a_position)
+      {
+
+      }*/
+
+      private void onUpdateEvent(object sender, UpdateEventArgs e)
       {
          // Pass on unless we're going to add any params.
          if (updateEvent != null)
@@ -32,10 +63,7 @@ namespace EzEngine
          }
       }
 
-      public void run()
-      {
-         m_device.start();
-      }
+      
 
       
    }
