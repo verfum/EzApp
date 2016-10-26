@@ -8,15 +8,16 @@ namespace EzEngine
 {
    public class Image
    {
-      Image(string a_name)
-      {
-         name = a_name;
-      }
-
-      Image(string a_name, Rectangle a_position)
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="a_name"></param>
+      /// <param name="a_position">World position</param>
+      Image(string a_name, Rectangle a_position, int a_zOrder)
       {
          name = a_name;
          position = a_position;
+         zOrder = a_zOrder;
       }
 
       string name
@@ -27,6 +28,12 @@ namespace EzEngine
 
 
       Rectangle position
+      {
+         get;
+         set;
+      }
+
+      int zOrder
       {
          get;
          set;

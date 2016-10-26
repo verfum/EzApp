@@ -28,6 +28,9 @@ namespace EzEngine
 
       private void onDrawEvent(object sender, EventArgs e)
       {
+         // TODO
+         // Need to go through list of views and then its world and then
+         // draw the objects it contains
          throw new NotImplementedException();
       }
 
@@ -52,7 +55,7 @@ namespace EzEngine
       /// <param name="m_name"></param>
       public void preLoadImage(string m_name)
       {
-         m_device.loadImage(m_name);
+         m_device.preLoadImage(m_name);
       }
 
       //
