@@ -181,6 +181,10 @@ namespace MonoGameDevice
          base.Draw(gameTime);
       }
 
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="a_imageName"></param>
       public void loadImage(string a_imageName)
       {      
          if (!m_images.ContainsKey(a_imageName))
@@ -197,9 +201,6 @@ namespace MonoGameDevice
 
       public void drawImage(string a_imageName, EzEngine.Rectangle a_screenRect)
       {
-         // TODO: need to lookup the Texture2D image from the supplied
-         // a_imageName and use it here instead of the hardcoded m_hero
-
          if(m_images.ContainsKey(a_imageName))
          {
             if(m_images[a_imageName] != null)
@@ -223,7 +224,7 @@ namespace MonoGameDevice
             throw new Exception("Image does not exist: " + a_imageName);
          }
 
-         // TODO: Draw the correct a_imageName from a cache of Texture2D images
+         // TODO: remove eventually
          m_spriteBatch.Draw(
             m_hero,
             new Microsoft.Xna.Framework.Rectangle(
@@ -232,6 +233,7 @@ namespace MonoGameDevice
                (int)a_screenRect.width,
                (int)a_screenRect.height),
             Color.White);
+         // End of remove this eventually
 
       }
 

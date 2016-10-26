@@ -31,6 +31,7 @@ namespace EzEngine
          throw new NotImplementedException();
       }
 
+      // Do we need this?
       private void onLoadContentEvent(object sender, EventArgs e)
       {
          if(loadContentEvent != null)
@@ -44,15 +45,26 @@ namespace EzEngine
          m_device.start();
       }
 
-      /*public Image createImage(string m_name)
+      /// <summary>
+      /// Call when loadContentEvent fires if you need
+      /// images loaded in advance for performance.
+      /// </summary>
+      /// <param name="m_name"></param>
+      public void preLoadImage(string m_name)
+      {
+         m_device.loadImage(m_name);
+      }
+
+      //
+      public void addWorld(/* world */)
       {
 
       }
 
-      public void addImage(Image image, Rectangle a_position)
-      {
-
-      }*/
+      // We should really be adding images to world objects,
+      // and adding worlds to the engine.
+      //public void addImage(Image a_image)
+      
 
       private void onUpdateEvent(object sender, UpdateEventArgs e)
       {

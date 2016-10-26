@@ -55,10 +55,10 @@ namespace EzEngine
       event LoadContentEventHandler loadContentEvent;
 
       /// <summary>
-      /// Load an image into memory
+      /// Pre load an image into memory
       /// </summary>
       /// <param name="a_imageName"></param>
-      void loadImage(string a_imageName);
+      void preLoadImage(string a_imageName);
 
       /// <summary>
       /// Draw an image. Make sure this is only called when
