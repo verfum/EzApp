@@ -31,7 +31,7 @@ namespace EzEngine
          // TODO
          // Need to go through list of views and then its world and then
          // draw the objects it contains
-         throw new NotImplementedException();
+         //throw new NotImplementedException();
       }
 
       // Do we need this?
