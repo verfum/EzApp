@@ -246,6 +246,9 @@ namespace MonoGameDevice
          this.Run();
       }
 
-      
+      public void preLoadImage(string a_imageName)
+      {
+         throw new NotImplementedException();
+      }
    }
 }

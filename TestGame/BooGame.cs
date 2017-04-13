@@ -25,17 +25,7 @@ namespace TestGame
          // drawing directly to screen
          ///
 
-         List<Image> particles = new List<Image>();
-         Image hero = m_engine.createImage("hero");
-
-         // TODO behind the scenes there will only be one raw image 
-         // called 'particleA' that is reused from cache.
-  
-         for (int a = 0; a < 100; a++)
-         {
-            Image particle = m_engine.createImage("particleA");
-            particles.Add(particle1);
-         }
+         
 
 
 
