@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EzEngineTest", "..\EzEngine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossPlatformDesktop", "..\CrossPlatformDesktop\CrossPlatformDesktop.csproj", "{EFA73E9D-0936-41AB-A67C-206C3E26EDB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGame", "..\TestGame\TestGame.csproj", "{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,14 @@ Global
 		{EFA73E9D-0936-41AB-A67C-206C3E26EDB8}.Release|Any CPU.ActiveCfg = Release|x86
 		{EFA73E9D-0936-41AB-A67C-206C3E26EDB8}.Release|x86.ActiveCfg = Release|x86
 		{EFA73E9D-0936-41AB-A67C-206C3E26EDB8}.Release|x86.Build.0 = Release|x86
+		{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}.Debug|x86.Build.0 = Debug|Any CPU
+		{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}.Release|x86.ActiveCfg = Release|Any CPU
+		{F4AC4124-9C3B-48EE-848A-7B2F8BD2CD82}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

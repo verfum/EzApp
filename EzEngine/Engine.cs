@@ -32,6 +32,11 @@ namespace EzEngine
          // Need to go through list of views and then its world and then
          // draw the objects it contains
          //throw new NotImplementedException();
+         
+         foreach(var image in m_images)
+         {
+            m_device.drawImage(image.name, image.position);
+         }
       }
 
       // Do we need this?
@@ -52,10 +57,10 @@ namespace EzEngine
       /// Call when loadContentEvent fires if you need
       /// images loaded in advance for performance.
       /// </summary>
-      /// <param name="m_name"></param>
-      public void preLoadImage(string m_name)
+      /// <param name="a_name"></param>
+      public void preLoadImage(string a_name)
       {
-         m_device.preLoadImage(m_name);
+         m_device.preLoadImage(a_name);
       }
 
       //
@@ -63,6 +68,13 @@ namespace EzEngine
       {
 
       }
+
+      public void addImage(Image a_image)
+      {        
+         m_images.Add(a_image);
+      }
+
+      List<Image> m_images = new List<Image>();
 
       // We should really be adding images to world objects,
       // and adding worlds to the engine.
@@ -77,8 +89,6 @@ namespace EzEngine
             updateEvent(this, e);
          }
       }
-
-      
 
       
    }

@@ -15,6 +15,14 @@ namespace TestGame
 
          m_engine.updateEvent += onUpdateEvent;
          m_engine.loadContentEvent += onLoadContentEvent;
+
+         m_engine.addImage(new EzEngine.Image(
+            "hero", // Image name
+            new EzEngine.Rectangle(new EzEngine.Coord(0, 0), new EzEngine.Coord(200, 120)), //position
+            0 // z order
+            ));
+         //drawImage("hero", new EzEngine.Rectangle(new EzEngine.Coord(0,0),
+         //   new EzEngine.Coord(400,240)));
       }
 
       private void onLoadContentEvent(object sender, EventArgs e)
@@ -25,17 +33,19 @@ namespace TestGame
          // drawing directly to screen
          ///
 
-         
+         // All resources used in the game need to be pre-loaded
+
+         m_engine.preLoadImage("hero");
 
 
 
-         throw new NotImplementedException();
+         //throw new NotImplementedException();
       }
 
       private void onUpdateEvent(object sender, EzEngine.UpdateEventArgs e)
       {
    
-         throw new NotImplementedException();
+         //throw new NotImplementedException();
       }
    }
 }

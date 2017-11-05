@@ -13,27 +13,27 @@ namespace EzEngine
       /// </summary>
       /// <param name="a_name"></param>
       /// <param name="a_position">World position</param>
-      Image(string a_name, Rectangle a_position, int a_zOrder)
+      public Image(string a_name, Rectangle a_position, int a_zOrder)
       {
          name = a_name;
          position = a_position;
          zOrder = a_zOrder;
       }
 
-      string name
+      public string name
       {
          get;
          set;
       }
 
 
-      Rectangle position
+      public Rectangle position
       {
          get;
          set;
       }
 
-      int zOrder
+      public int zOrder
       {
          get;
          set;

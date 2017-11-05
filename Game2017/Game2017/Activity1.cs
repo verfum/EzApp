@@ -28,6 +28,7 @@ namespace Game2017
          var g = new MonoGameDevice.Device();
          SetContentView((View)g.Services.GetService(typeof(View)));
          var engine = new EzEngine.Engine(g);
+         var game = new TestGame.BooGame(engine);
          engine.run();
 
       }

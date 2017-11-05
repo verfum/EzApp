@@ -24,11 +24,12 @@ namespace MonoGameDevice
       public event EzEngine.LoadContentEventHandler loadContentEvent;
       public event EzEngine.DrawEventHandler drawEvent;
 
+      // Cache of images. Keep this.
       private Dictionary<string, Texture2D> m_images = new Dictionary<string, Texture2D>();
 
       private GraphicsDeviceManager graphics;
       private SpriteBatch m_spriteBatch;
-      private Texture2D m_hero;
+      //private Texture2D m_hero;
       private SpriteFont m_font;
       private uint m_score = 0;
       private string m_levelName;
@@ -81,7 +82,11 @@ namespace MonoGameDevice
 
          // TODO: use this.Content to load your game content here
          m_font = Content.Load<SpriteFont>("Score"); // Use the name of your sprite font file here instead of 'Score'.
-         m_hero = Content.Load<Texture2D>("hero");
+
+         // Now done in BooGame.cs
+         //loadImage("hero");
+
+         //m_hero = Content.Load<Texture2D>("hero");
          //Typeface tf = Typeface.CreateFromAsset (Context.Assets, "fonts/samplefont.ttf");
          Stream s = TitleContainer.OpenStream(@".\Content\level1.xml");
 
@@ -161,11 +166,13 @@ namespace MonoGameDevice
             drawEvent(this, new EventArgs());
          }
 
+         // Now done in BooGame.cs
+         //drawImage("hero", new EzEngine.Rectangle(new EzEngine.Coord(0,0),
+         //   new EzEngine.Coord(400,240)));
 
-
-         // TODO: Remove this eventually
-         m_spriteBatch.Draw(m_hero, new Vector2(400, 240), Color.White);
-         m_spriteBatch.DrawString(m_font, "Level50 " + m_levelName + 
+         //// TODO: Remove this eventually
+         //m_spriteBatch.Draw(m_hero, new Vector2(400, 240), Color.White);
+         m_spriteBatch.DrawString(m_font, "Level: " + m_levelName + 
             " Score: " + m_score, new Vector2(100, 100), Color.Black);
          m_spriteBatch.DrawString(m_font, "Back: " + m_backPressed,
                new Vector2(100, 130), Color.Black);
@@ -199,6 +206,11 @@ namespace MonoGameDevice
          }
       }
 
+      /*need another abstract Device that cxan set a view and draw to that 
+         view can be 320x240 on whatever res screen and then 
+         coords are specified in view coords not screen coords
+         or that can be done here?*/
+
       public void drawImage(string a_imageName, EzEngine.Rectangle a_screenRect)
       {
          if(m_images.ContainsKey(a_imageName))
@@ -224,17 +236,6 @@ namespace MonoGameDevice
             throw new Exception("Image does not exist: " + a_imageName);
          }
 
-         // TODO: remove eventually
-         m_spriteBatch.Draw(
-            m_hero,
-            new Microsoft.Xna.Framework.Rectangle(
-               (int)a_screenRect.left,
-               (int)a_screenRect.top,
-               (int)a_screenRect.width,
-               (int)a_screenRect.height),
-            Color.White);
-         // End of remove this eventually
-
       }
 
       /// <summary>
@@ -248,7 +249,8 @@ namespace MonoGameDevice
 
       public void preLoadImage(string a_imageName)
       {
-         throw new NotImplementedException();
+         loadImage(a_imageName);
+         //throw new NotImplementedException();
       }
    }
 }
