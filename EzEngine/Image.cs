@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace EzEngine
 {
-   public class Image
+   public class Image : Drawable
    {
       /// <summary>
       /// 
       /// </summary>
       /// <param name="a_name"></param>
       /// <param name="a_position">World position</param>
-      public Image(string a_name, Rectangle a_position, int a_zOrder)
+      public Image(string a_name, Rectangle a_position)
       {
          name = a_name;
          position = a_position;
-         zOrder = a_zOrder;
       }
 
       public string name
@@ -26,17 +25,10 @@ namespace EzEngine
          set;
       }
 
-
-      public Rectangle position
+      public override void draw(IRenderer a_renderer)
       {
-         get;
-         set;
-      }
-
-      public int zOrder
-      {
-         get;
-         set;
+         //base.draw(a_renderer);
+         a_renderer.drawImage(name, position);
       }
    }
 }

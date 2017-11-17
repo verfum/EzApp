@@ -9,6 +9,7 @@ namespace TestGame
    public class BooGame
    {
       private EzEngine.Engine m_engine;
+
       public BooGame(EzEngine.Engine a_engine)
       {
          m_engine = a_engine;
@@ -16,13 +17,16 @@ namespace TestGame
          m_engine.updateEvent += onUpdateEvent;
          m_engine.loadContentEvent += onLoadContentEvent;
 
-         m_engine.addImage(new EzEngine.Image(
+         EzEngine.Drawable pane = new EzEngine.Drawable();
+         pane.position = new EzEngine.Rectangle(new EzEngine.Coord(100, 100), 300, 300);
+         EzEngine.Image hero = new EzEngine.Image(
             "hero", // Image name
-            new EzEngine.Rectangle(new EzEngine.Coord(0, 0), new EzEngine.Coord(200, 120)), //position
-            0 // z order
-            ));
-         //drawImage("hero", new EzEngine.Rectangle(new EzEngine.Coord(0,0),
-         //   new EzEngine.Coord(400,240)));
+            new EzEngine.Rectangle(new EzEngine.Coord(0, 0), 64, 64) //position
+            );
+         pane.add(hero);
+
+
+         m_engine.addDrawable(pane);
       }
 
       private void onLoadContentEvent(object sender, EventArgs e)

@@ -10,7 +10,7 @@ using System.IO;
 
 namespace EzEngine
 {
-   public class Engine
+   public class Engine : IRenderer
    {
       public event EzEngine.UpdateEventHandler updateEvent;
       public event EzEngine.LoadContentEventHandler loadContentEvent;
@@ -28,16 +28,13 @@ namespace EzEngine
 
       private void onDrawEvent(object sender, EventArgs e)
       {
-         // TODO
-         // Need to go through list of views and then its world and then
-         // draw the objects it contains
-         //throw new NotImplementedException();
-         
-         foreach(var image in m_images)
+         m_rendererPosition = new Rectangle(new Coord(0, 0), 0, 0);
+         foreach (Drawable drawable in m_drawables)
          {
-            m_device.drawImage(image.name, image.position);
+            drawable.draw(this);
          }
       }
+
 
       // Do we need this?
       private void onLoadContentEvent(object sender, EventArgs e)
@@ -63,23 +60,17 @@ namespace EzEngine
          m_device.preLoadImage(a_name);
       }
 
-      //
-      public void addWorld(/* world */)
+
+      public void addDrawable(Drawable a_drawable)
       {
-
+         m_drawables.Add(a_drawable);
       }
 
-      public void addImage(Image a_image)
-      {        
-         m_images.Add(a_image);
-      }
-
-      List<Image> m_images = new List<Image>();
 
       // We should really be adding images to world objects,
       // and adding worlds to the engine.
       //public void addImage(Image a_image)
-      
+
 
       private void onUpdateEvent(object sender, UpdateEventArgs e)
       {
@@ -90,6 +81,34 @@ namespace EzEngine
          }
       }
 
-      
+      List<Drawable> m_drawables = new List<Drawable>();
+
+
+
+      // IRenderer implementation
+
+      Rectangle m_rendererPosition = new Rectangle(new Coord(0,0), 0,0);
+
+      Rectangle IRenderer.position
+      {
+         get
+         {
+            return m_rendererPosition;
+         }
+
+         set
+         {
+            m_rendererPosition = value;
+         }
+      }
+
+      void IRenderer.drawImage(string a_image, Rectangle a_position)
+      {
+         Rectangle rendererPos = (this as IRenderer).position;
+         Rectangle newPos = new Rectangle(new Coord(a_position.left + rendererPos.left,
+            a_position.top + rendererPos.top), a_position.width, a_position.height);
+
+         m_device.drawImage(a_image, newPos);
+      }
    }
 }

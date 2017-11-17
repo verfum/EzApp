@@ -6,21 +6,34 @@ using System.Threading.Tasks;
 
 namespace EzEngine
 {
-   class Drawable
+   public class Drawable
    {
-      private Rectangle m_position;
+
       private List<Drawable> m_drawables = new List<Drawable>();
+
+      public Rectangle position
+      {
+         get;
+         set;
+      }
 
       public void add(Drawable a_drawable)
       {
          m_drawables.Add(a_drawable);
       }
 
-      public void draw(/*Renderer a_renderer*/)
+      public virtual void draw(IRenderer a_renderer)
       {
-         foreach(Drawable drawable in m_drawables)
+
+         Rectangle pos = a_renderer.position;
+         Rectangle newPos = new Rectangle(new Coord(pos.left + position.left, pos.top + position.top),
+            pos.width, pos.height);
+
+         a_renderer.position = newPos;
+
+         foreach (Drawable drawable in m_drawables)
          {
-            drawable.draw(/*a_renderer*/);
+            drawable.draw(a_renderer);
          }
       }
    }

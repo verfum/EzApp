@@ -154,7 +154,7 @@ namespace MonoGameDevice
       protected override void Draw(GameTime gameTime)
       {
          GraphicsDevice.Clear(Color.CornflowerBlue);
-
+         int w = GraphicsDevice.Viewport.Width;
          m_spriteBatch.Begin();
 
 

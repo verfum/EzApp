@@ -23,6 +23,12 @@ namespace EzEngine
          m_bottomRight = a_bottomRight;
       }
 
+      public Rectangle(Coord a_topLeft, float a_width, float a_height)
+      {
+         m_topLeft = a_topLeft;
+         m_bottomRight = new Coord(a_topLeft.x+a_width, a_topLeft.y+a_height);
+      }
+
       public Coord topLeft
       {
          set
